@@ -1,0 +1,56 @@
+from tkinter import *
+from tkinter import colorchooser
+
+penWidth = 1
+color = 'black'
+
+def doselcolor():
+    global color
+    colors = colorchooser.askcolor()
+    color = colors[1]
+
+def dothick():
+    global penWidth
+    if penWidth < 10:
+        penWidth += 1
+
+def dothin():
+    global penWidth
+    if penWidth > 2:
+        penWidth -= 1
+
+def doclear():
+    cv.delete("all")  # delete("all" | "Ç×¸ñ¸í")
+
+def doexit():
+    root.destroy()
+
+def dodraw(event):
+    x = event.x
+    y = event.y
+    cv.create_oval(x-penWidth, y, x+penWidth, y+penWidth, fill=color, outline=color)
+
+
+root = Tk()
+root.title("±×¸²ÆÇ")
+cv = Canvas(root, width=800, height=600, background="lightblue")
+cv.pack()
+
+cv.bind("<B1-Motion>", dodraw)
+frButtonGroup = Frame(root)
+frButtonGroup.pack()
+
+btColor = Button(frButtonGroup, text="»ö»ó", font="±¼¸²", command=doselcolor)
+btThick = Button(frButtonGroup, text="µÎ²®°Ô", font="±¼¸²", command=dothick)
+btThin = Button(frButtonGroup, text="°¡´Ã°Ô", font="±¼¸²", command=dothin)
+btClear = Button(frButtonGroup, text="Áö¿ì±â", font="±¼¸²", command=doclear)
+btExit = Button(frButtonGroup, text="³ª°¡±â", font="±¼¸²", command=doexit)
+
+btColor.grid(row=0, column=0)
+btThick.grid(row=0, column=1)
+btThin.grid(row=0, column=2)
+btClear.grid(row=0, column=3)
+btExit.grid(row=0, column=4)
+
+root.mainloop()
+

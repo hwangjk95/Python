@@ -1,0 +1,10 @@
+00,작업 SKIP 한 UNIT,PASS,,
+04,이전공정불량 (REJECT+ XOUT),REJECT,,
+05,EQP GOOD (VISION 검사양품),GOOD,,
+06,USER GOOD (작업자 양품처리),GOOD,,
+10,USER NG (작업자 불량처리),LOSS,CVAR,실물 수량과 전산 수량 불일치
+11,(BALL) X-MARK,LOSS,,
+12,(BALL) BALL_PKG_SIZE,LOSS,DMSN,외부 크기가 규정과 일치하지 않는 경우
+13,(BALL) SAW_OFFSET,LOSS,BAGO,
+14,(BALL) BALL_MISSING,LOSS,BAMS,볼이 없는 경우
+15,(BALL) EXTRA_BALL,LOSS,BABR,볼과 볼이 연결 된 경우

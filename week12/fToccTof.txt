@@ -1,0 +1,40 @@
+#grid geometry manager
+from tkinter import *
+
+def calFtoC():
+    f = etF.get()
+    if f.strip():
+        c = (float(f) - 32) * (5/9)
+        etC.delete(0, END)
+        etC.insert(0, f"{c:0.2f}")
+
+def calCtoF():
+    c = etC.get()
+    if c.strip():
+        f = (float(c) *1.8) + 32
+        etF.delete(0, END)
+        etF.insert(0, f"{f:0.2f}")
+
+mw = Tk()
+
+lbF = Label(mw,text="È­¾¾")
+lbC = Label(mw,text="¼·¾¾")
+
+etF = Entry(mw)
+etC = Entry(mw)
+
+frButton = Frame(mw) #ÄÁÅ×ÀÌ³Ê
+btFtoC = Button(frButton, text="È­¾¾->¼·¾¾", command=calFtoC)
+btCtoF = Button(frButton, text="¼·¾¾->È­¾¾", command=calCtoF)
+
+lbF.grid(row=0, column=0)
+lbC.grid(row=1, column=0)
+
+etF.grid(row=0, column=1)
+etC.grid(row=1, column=1)
+
+frButton.grid(row=2, column=1)
+btFtoC.grid(row=0, column=0)
+btCtoF.grid(row=0, column=1)
+
+mw.mainloop()
